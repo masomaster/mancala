@@ -40,14 +40,15 @@
     - The player clicks on a pit to indicate where they want to "pick up" the seeds.
         - They should only be able to select a shared pit with seeds in it.
         - **Icebox feature:** player can only select from pits on their side of the board.
-        - The game then automatically starts sowing the seeds at the next sequential pit (clockwise) ``sowSeeds()``
+        - The game then automatically starts sowing the seeds at that pit (clockwise) ``sowSeeds()``
             - ``sowSeeds()`` should skip the opposite player's bank
             - If the last seed is sown in the player's own bank, they get another turn 
-            - If the last seed is sown in a shared pit with seeds in it, the player automatically picks up those seeds and continues sowing. (``sowSeeds()`` from the last pit sown -- no selection necessary);
+            - If the last seed is sown in a shared pit with seeds in it, the player automatically picks up those seeds and continues sowing. (``sowSeeds()`` from the that pit -- no selection necessary); (do this? this could be an icebox feature to keep things simple for now -- game rules vary)
             - If the last seed is sown in an empty pit, their turn is over.
     - After seeds have been distributed, check to see if there is a win state.  ``checkWin()``
-        - A win state is defined as no seeds in the shared pits on one side of the board. (???)
-        - The winner 
+        - A win state is defined as no seeds in the shared pits on one side of the board OR in **any** shared pits. (???)
+        - The winner is the player with more seeds in their bank.
+            - With 48 seeds total, technically a tie is possible. Can compute this if both players have 24 seeds in bank.
         - If so, change win state.
         - If not, change player turn state.
     - Render the board to the DOM.  ``render()``
@@ -55,3 +56,11 @@
     - **Icebox feature:** Update user's running overall score ``updateUserScore()`` 
     - Render DOM with win/lose/tie message ``render()``
     - Reinitialize board state ``init()``
+
+# App's State Data
+
+- player IDs -- integer (1 or -1) -- but this may be stored in an object, in which case it wouldn't be state data
+- ``turn`` (Whose turn is it?) -- likely an integer (1 or -1)
+- ``winner`` -- integer corresponding to player ID (1 or -1); null is no winner (keep playing); tie is calculated if both players have 24 seeds in bank.
+- ``board`` -- likely an array. 
+    It would get confusing with the two banks, though. but I would designate one index for each player then use a conditional to skip that index based on whose turn it is. Is there a simpler way to do this?
