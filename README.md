@@ -1,0 +1,3 @@
+# Mancala
+By Mason Lancaster
+
