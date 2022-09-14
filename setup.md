@@ -22,3 +22,25 @@
 # Wireframe
 
 <img title="Wireframe of Mancala" alt="wireframe" src="/Mancala_board.drawio.png">
+
+# Pseudocode
+
+- When we start a game of mancala, what needs to happen?
+    - **Icebox feature:** Randomly select first player **[firstPlayer()]**
+    - Initialize board state **[init()]**
+        - Each of the six shared pits should have eight stones
+        - Each of the player pits should be empty.
+        - Message should show which player goes first.
+    - Render the board to the DOM **[render()]**
+- When it's a player's turn:
+    - The first click indicates from which pit they want to "pick up" the stones.  **[pickStones()]**
+        - They should only be able to select a shared pit with stones in it.
+    - The second click indicates where the stones will begin to be automatically distributed.  **[dropStones()]**
+    - After stones have been distributed, check to see if there is a win state.  **[checkWin()]**
+        - If so, change win state.
+        - If not, change player turn.
+    - Rernder the board to the DOM.  **[render()]**
+- When game is over:
+    - **Icebox feature:** Update user's running overall score **[updateUserScore()]** 
+    - Render DOM with win/lose/tie message **[render()]**
+    - Reinitialize board state **[init()]**
