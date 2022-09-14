@@ -15,9 +15,9 @@
 
 # Overall UI
 
-    - Minimalist clean design or honor ancient roots?
-    - Board is simple
-    - Instructions at the top will ensure the user knows what to do.
+- Minimalist clean design or honor ancient roots?
+- Board is simple
+- Instructions at the top will ensure the user knows what to do.
 
 # Wireframe
 
