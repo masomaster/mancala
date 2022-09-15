@@ -25,7 +25,7 @@
 
 # Wireframe
 
-<img title="Wireframe of Mancala" alt="wireframe" src="/Mancala_wireframe.drawio.png">
+<img title="Wireframe of Mancala" alt="wireframe" src="/images/Mancala_wireframe.drawio.png">
 
 # Pseudocode
 
