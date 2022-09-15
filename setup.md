@@ -22,6 +22,7 @@
 - Minimalist clean design or honor ancient roots?
 - Board is simple
 - Instructions at the top will ensure the user knows what to do.
+- Need to label each side of the board by player.
 
 # Wireframe
 
@@ -30,32 +31,33 @@
 # Pseudocode
 
 - When we start a game of mancala, what needs to happen?
-    - **Icebox feature:** Randomly select first player ``firstPlayer()``
-    - Initialize board state ``init()``
-        - Each of the six shared pits should have eight seeds
+    - **Icebox feature:** Randomly select first player [``firstPlayer()``]
+    - Initialize board state [``init()``]
+        - Each of the six shared pits should have four seeds
         - Each of the player banks should be empty.
         - Message should show which player goes first.
-    - Render the board to the DOM ``render()``
+    - Render the board to the DOM [``render()``]
 - When it's a player's turn:
     - The player clicks on a pit to indicate where they want to "pick up" the seeds.
         - They should only be able to select a shared pit with seeds in it.
+        - They can only select a pit on their side of the board. (icebox?)
         - **Icebox feature:** player can only select from pits on their side of the board.
-        - The game then automatically starts sowing the seeds at that pit (clockwise) ``sowSeeds()``
+        - The game then automatically starts sowing the seeds at that pit (clockwise) [``sowSeeds()``]
             - ``sowSeeds()`` should skip the opposite player's bank
             - If the last seed is sown in the player's own bank, they get another turn 
-            - If the last seed is sown in a shared pit with seeds in it, the player automatically picks up those seeds and continues sowing. (``sowSeeds()`` from the that pit -- no selection necessary); (do this? this could be an icebox feature to keep things simple for now -- game rules vary)
             - If the last seed is sown in an empty pit, their turn is over.
-    - After seeds have been distributed, check to see if there is a win state.  ``checkWin()``
-        - A win state is defined as no seeds in the shared pits on one side of the board OR in **any** shared pits. (???)
+    - After seeds have been distributed, check to see if there is a win state.  [``checkWin()``]
+        - A win state is defined as no seeds in **any** shared pits.
+            - **Icebox feature:** Another way of playing is no seeds in the shared pits on one side of the board, but this seems harder to implement in code.
         - The winner is the player with more seeds in their bank.
-            - With 48 seeds total, technically a tie is possible. Can compute this if both players have 24 seeds in bank.
+            - With 24 seeds total, technically a tie is possible. Can compute this if both players have 12 seeds in bank.
         - If so, change win state.
         - If not, change player turn state.
-    - Render the board to the DOM.  ``render()``
+    - Render the board to the DOM.  [``render()``]
 - When game is over:
-    - **Icebox feature:** Update user's running overall score ``updateUserScore()`` 
-    - Render DOM with win/lose/tie message ``render()``
-    - Reinitialize board state ``init()``
+    - **Icebox feature:** Update user's running overall score [``updateUserScore()``]
+    - Render DOM with win/lose/tie message [``render()``]
+    - Reinitialize board state [``init()``]
 
 # App's State Data
 
