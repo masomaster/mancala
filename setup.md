@@ -62,10 +62,14 @@
 
 # App's State Data
 
-- player IDs -- integer (1 or -1) -- but this may be stored in an object, in which case it wouldn't be state data
+## Variable Data
 - ``turn`` (Whose turn is it?) -- likely an integer (1 or -1)
 - ``winner`` -- integer corresponding to player ID (1 or -1); null is no winner (keep playing); tie is calculated if both players have 24 seeds in bank.
 - ``board`` -- likely an array. 
     It would get confusing with the two banks, though. but I would designate one index for each player then use a conditional to skip that index based on whose turn it is. Is there a simpler way to do this?
     Or array with objects within? That seems to be a common thing -- would let me label each one. e.g. p1sq1, p1sq2, p1sq3, etc... p1bank, p2sq1, etc.
 - ``curPitIdx`` -- an index of the board array of objects corresponding to the current pit for sowing seeds
+
+## Constant Data
+- player IDs -- integer (1 or -1) -- stored in an object.
+
