@@ -5,33 +5,36 @@ body {
 }
 
 main {
+    display: flex;
+}
+
+#board {
     width: 700px;
     height: 200px;
     display: grid;
-    grid-template-columns: repeat(10, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 4px;
     grid-row-gap: 4px;
     border: 2px solid black;
+    padding: 5px;
+    border-radius: 20px;
+    background-color: rgba(181, 171, 123, 1);
 }
 
-main div {
+#board div {
     border: 2px solid black;
+    border-radius: 20px;
+    background-color: rgba(215, 209, 178, 1);
 }
 
-#player1-bank-label, #player2-bank-label, #player1-bank, #player2-bank {
+#player1-bank, #player2-bank {
     grid-row: span 2;
-    background-color:bisque;
 }
 
-/* #player1-bank-label, #player2-bank-label {
-
+ #player1-bank-label, #player2-bank-label {
+    border: none;
+    display: grid;
+    align-content: center;
+    width: 80px;
  }
-
- #player1-bank-label {
-    transform: rotate(270deg);
- }
-
- #player2-bank-label {
-    transform: rotate(90deg);
- } */
