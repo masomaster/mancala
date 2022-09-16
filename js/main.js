@@ -2,11 +2,11 @@
 const PLAYER_LOOKUP = {
     '1': {
         name: 'Player1',
-        bankIdx: 6
+        bankIdx: 13
     }
     '-1': {
         name: 'Player2',
-        bankIdx: 13
+        bankIdx: 6
     }
 
 }
