@@ -76,5 +76,4 @@
 - player IDs -- integer (1 or -1) -- stored in an object.
 
 # Brainstorming notes for self
-- board has to be an array. easy enough to build a function that includes conditionals depending on the current player (whose turn) then iterates through the array to skip the opposite player's bank. (how to skip one index in array?) Would likely be a decrementing for loop (based on the # of seeds to sow, which is taken from the current value in the selected "pick" pit).
 - Do I just assume people know how to play and I don't need to have extensive rules of the game?
