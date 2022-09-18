@@ -19,7 +19,8 @@ let turn, board, winner, startingPit;
 /*----- cached element references -----*/
 const pitAndBankEls = document.getElementById('board');
 const resetBtnEl = document.querySelector('button');
-const message1DisplayEl = document.getElementById('player-turn-msg');
+const PlayerTurnDisplayEl = document.getElementById('player-turn-msg');
+const instructionDisplayEl = document.getElementById('instruction-msg');
 
 
 /*----- event listeners -----*/
@@ -31,6 +32,7 @@ pitAndBankEls.addEventListener('click', handleClick);
 function init() {
     board = [4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0];
     turn = 1;
+    winner = 0;
     render();
 }
 
@@ -63,10 +65,12 @@ function checkWin() {
 
 function render() {
     if (!winner) {
-        message1DisplayEl.innerText = `${PLAYER_LOOKUP[turn].name}'s turn`;
+        PlayerTurnDisplayEl.innerText = `${PLAYER_LOOKUP[turn].name}'s turn`;
+        instructionDisplayEl.innerText = 'Select a pit of seeds to sow'
     }
     else {
-        message1DisplayEl.innerText = `${PLAYER_LOOKUP[winner].name} wins!`
+        PlayerTurnDisplayEl.innerText = `${PLAYER_LOOKUP[winner].name} wins!`
+        instructionDisplayEl.innerText = 'Congratulations!';
     }
 
     board.forEach((pit, idx) => {
@@ -84,3 +88,7 @@ function render() {
 }
 
 init();
+
+
+// NEXT STEPS: finish rendering second h2 instructions, and figure out winner.
+// there is an error: if it skips the other player's bank, somehow it also skips the next viable pit (after the bank)!!???!
