@@ -16,6 +16,8 @@
 - As a user, I want to be able to pick which side of the board is mine.
 - As a user, I want to see a label so I know which side of the board is mine.
 - As a user, I want to see individual seed images in each pit (rather than a number)
+- As a user, I want to be able to set my name instead of "Player 1" or "Player 2"
+- As a user, I want to be able to click a button to get a pop-up with information on mancala and its history.
 
 # Overall UI
 
@@ -73,3 +75,6 @@
 ## Constant Data
 - player IDs -- integer (1 or -1) -- stored in an object.
 
+# Brainstorming notes for self
+- board has to be an array. easy enough to build a function that includes conditionals depending on the current player (whose turn) then iterates through the array to skip the opposite player's bank. (how to skip one index in array?) Would likely be a decrementing for loop (based on the # of seeds to sow, which is taken from the current value in the selected "pick" pit).
+- Do I just assume people know how to play and I don't need to have extensive rules of the game?

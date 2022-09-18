@@ -28,7 +28,7 @@ main {
     background-color: rgba(215, 209, 178, 1);
 }
 
-#player1-bank, #player2-bank {
+#pit13, #pit6 {
     grid-row: span 2;
 }
 
@@ -37,4 +37,9 @@ main {
     display: grid;
     align-content: center;
     width: 80px;
+ }
+
+ button {
+    width: 75px;
+    margin: 50px;
  }

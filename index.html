@@ -15,22 +15,23 @@
     <main>
         <div id = "player1-bank-label">Player 1 Bank</div>            
         <div id = "board">
-            <div id = "player1-bank"></div>
+            <div class = "banks" id = "pit13"></div> <!-- I think I can remove pits class entirely if my querySelectorAll works for #board > div -->
             <div id = "pit0">[Pit #0]</div>
             <div id = "pit1">[Pit #1]</div>
             <div id = "pit2">[Pit #2]</div>
             <div id = "pit3">[Pit #3]</div>
             <div id = "pit4">[Pit #4]</div>
             <div id = "pit5">[Pit #5]</div>
-            <div id = "player2-bank"></div>
-            <div id = "pit6">[Pit #6]</div>
-            <div id = "pit7">[Pit #7]</div>
-            <div id = "pit8">[Pit #8]</div>
-            <div id = "pit9">[Pit #9]</div>
-            <div id = "pit10">[Pit #10]</div>
+            <div class = "banks" id = "pit6"></div>
+            <div id = "pit12">[Pit #12]</div> <!-- Just realized pits don't 'wrap around' on page. It should be ok as long as render() is based on indexes and `pit$[idx}` Otherwise will have to use something like 'wrap' with 'flex-direction: row-reverse' in CSS-->
             <div id = "pit11">[Pit #11]</div>
+            <div id = "pit10">[Pit #10]</div>
+            <div id = "pit9">[Pit #9]</div>
+            <div id = "pit8">[Pit #8]</div>
+            <div id = "pit7">[Pit #7]</div>
         </div>
         <div id = "player2-bank-label">Player 2 Bank</div>
     </main>
+    <button>Play it again!</button>
 </body>
 </html>
