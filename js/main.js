@@ -19,7 +19,7 @@ let turn, board, winner, startingPit;
 /*----- cached element references -----*/
 const pitAndBankEls = document.getElementById('board');
 const resetBtnEl = document.querySelector('button');
-const PlayerTurnDisplayEl = document.getElementById('player-turn-msg');
+const playerTurnDisplayEl = document.getElementById('player-turn-msg');
 const instructionDisplayEl = document.getElementById('instruction-msg');
 
 
@@ -43,7 +43,7 @@ function handleClick(evt) {
         board[startingPit] = 0;
         let idx = startingPit + 1;
         while (numSeeds>0) {
-            if (idx>13) idx = idx-13;
+            if (idx>13) idx = idx-14;
             else {
                 if (idx === PLAYER_LOOKUP[turn*-1].bankIdx) {
                     idx++;
@@ -65,11 +65,11 @@ function checkWin() {
 
 function render() {
     if (!winner) {
-        PlayerTurnDisplayEl.innerText = `${PLAYER_LOOKUP[turn].name}'s turn`;
+        playerTurnDisplayEl.innerText = `${PLAYER_LOOKUP[turn].name}'s turn`;
         instructionDisplayEl.innerText = 'Select a pit of seeds to sow'
     }
     else {
-        PlayerTurnDisplayEl.innerText = `${PLAYER_LOOKUP[winner].name} wins!`
+        playerTurnDisplayEl.innerText = `${PLAYER_LOOKUP[winner].name} wins!`
         instructionDisplayEl.innerText = 'Congratulations!';
     }
 
@@ -91,4 +91,4 @@ init();
 
 
 // NEXT STEPS: finish rendering second h2 instructions, and figure out winner.
-// there is an error: if it skips the other player's bank, somehow it also skips the next viable pit (after the bank)!!???!
+// there is an error: if it skips the other player's bank, somehow it also skips the next viable pit (after the bank)!!???! but only for pit 0, not other side.
