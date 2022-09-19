@@ -17,7 +17,7 @@ let turn, board, winner, startingPit;
 
 
 /*----- cached element references -----*/
-const pitAndBankEls = document.getElementById('board');
+const boardEl = document.getElementById('board');
 const resetBtnEl = document.querySelector('button');
 const playerTurnDisplayEl = document.getElementById('player-turn-msg');
 const instructionDisplayEl = document.getElementById('instruction-msg');
@@ -25,7 +25,7 @@ const instructionDisplayEl = document.getElementById('instruction-msg');
 
 /*----- event listeners -----*/
 resetBtnEl.addEventListener('click', init);
-pitAndBankEls.addEventListener('click', handleClick);
+boardEl.addEventListener('click', handleClick);
 
 
 /*----- functions -----*/
@@ -70,7 +70,7 @@ function checkWin() {
 function render() {
     if (winner === null) {
         playerTurnDisplayEl.innerText = `${PLAYER_LOOKUP[turn].name}'s turn`;
-        instructionDisplayEl.innerText = 'Select a pit of seeds to sow to fill your bank'
+        instructionDisplayEl.innerText = 'Select a pit of seeds to sow clockwise to fill your bank'
     } else if (winner ===0) {
         playerTurnDisplayEl.innerText = "It's a tie!";
         instructionDisplayEl.innerText = 'Play again to give it another go!';

@@ -19,6 +19,8 @@
 - As a user, I want to see individual seed images in each pit (rather than a number)
 - As a user, I want to be able to set my name instead of "Player 1" or "Player 2"
 - As a user, I want to be able to click a button to get a pop-up with information on mancala and its history.
+- As a user, I want to see a design down the middle of board (between rows).
+- As a user, I want the reset button to "click" (change color or give some indication of having been pushed).
 
 # Overall UI
 
@@ -77,6 +79,3 @@
 
 ## Constant Data
 - player IDs -- integer (1 or -1) -- stored in an object.
-
-# Brainstorming notes for self
-- Do I just assume people know how to play and I don't need to have extensive rules of the game?

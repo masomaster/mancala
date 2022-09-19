@@ -1,11 +1,48 @@
+/* * {
+    box-sizing: border-box;
+} */
+
+@import url(http://db.onlinewebfonts.com/c/6a43a770090c70c79171e3084f1106f6?family=Planet+S);
+@font-face {
+    font-family: "Planet S"; 
+    src: url("http://db.onlinewebfonts.com/t/6a43a770090c70c79171e3084f1106f6.eot"); 
+    src: url("http://db.onlinewebfonts.com/t/6a43a770090c70c79171e3084f1106f6.eot?#iefix") format("embedded-opentype"), url("http://db.onlinewebfonts.com/t/6a43a770090c70c79171e3084f1106f6.woff2") format("woff2"), url("http://db.onlinewebfonts.com/t/6a43a770090c70c79171e3084f1106f6.woff") format("woff"), url("http://db.onlinewebfonts.com/t/6a43a770090c70c79171e3084f1106f6.ttf") format("truetype"), url("http://db.onlinewebfonts.com/t/6a43a770090c70c79171e3084f1106f6.svg#Planet S") format("svg"); 
+}
+
 body {
     text-align: center;
-    display: grid;
-    justify-content: center;
+    font-family: 'Spectral', serif;
+    font-weight: 300;
+    background-color: #b7f0ad;
+    margin: 0;
+}
+
+h1 {
+    font-family: "Planet S";
+    background-color: #edff7a;
+    margin: 0;
+    padding: 60px 30px 40px; 
+    font-size: 100px;
+
+}
+
+h2 {
+    font-weight: 300;
+}
+
+#player-turn-msg {
+    margin-top: 60px;
+    margin-bottom: 3px;
+}
+
+#instruction-msg {
+    margin-top: 3px;
+    margin-bottom: 40px;
 }
 
 main {
     display: flex;
+    justify-content: center;
 }
 
 #board {
@@ -15,17 +52,22 @@ main {
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 4px;
-    grid-row-gap: 4px;
-    border: 2px solid black;
-    padding: 5px;
+    grid-row-gap: 32px;
+    border: 2px solid #D17B0F;
+    padding: 10px;
     border-radius: 20px;
-    background-color: rgba(181, 171, 123, 1);
+    background-color: #D17B0F;
 }
 
 #board div {
-    border: 2px solid black;
-    border-radius: 20px;
-    background-color: rgba(215, 209, 178, 1);
+    display: flex;
+    border: 2px solid #d89849;
+    border-radius: 39px;
+    background-color: #d89849;
+    margin: 3px;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
 }
 
 #pit13, #pit6 {
@@ -37,9 +79,20 @@ main {
     display: grid;
     align-content: center;
     width: 80px;
+    font-size: 1.4em;
+    font-weight: 400;
+    margin: 15px;
  }
 
  button {
-    width: 75px;
+    width: 200px;
     margin: 50px;
+    padding: 20px;
+    font-size: 1.5em;
+    font-weight: 300;
+    font-family: 'Spectral', serif;
+    background-color: #edff7a;
+    border: 0;
+    justify-self: center;
+    border-radius: 20px;
  }
