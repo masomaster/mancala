@@ -13,13 +13,14 @@ body {
     text-align: center;
     font-family: 'Spectral', serif;
     font-weight: 300;
-    background-color: #b7f0ad;
+    background-color: #e9eb93;
     margin: 0;
 }
 
 h1 {
     font-family: "Planet S";
-    background-color: #edff7a;
+    background-color: #14080e;
+    color: white;
     margin: 0;
     padding: 60px 30px 40px; 
     font-size: 100px;
@@ -53,17 +54,17 @@ main {
     grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 4px;
     grid-row-gap: 32px;
-    border: 2px solid #D17B0F;
+    border: 2px solid #799496;
     padding: 10px;
     border-radius: 20px;
-    background-color: #D17B0F;
+    background-color: #799496; // formerly D17B0F
 }
 
 #board div {
     display: flex;
-    border: 2px solid #d89849;
+    border: 2px solid #acc196;
     border-radius: 39px;
-    background-color: #d89849;
+    background-color: #acc196; // formerly d89849
     margin: 3px;
     padding: 5px;
     justify-content: center;
@@ -91,7 +92,8 @@ main {
     font-size: 1.5em;
     font-weight: 300;
     font-family: 'Spectral', serif;
-    background-color: #edff7a;
+    background-color: #49475b;
+    color: white;
     border: 0;
     justify-self: center;
     border-radius: 20px;

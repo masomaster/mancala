@@ -21,22 +21,36 @@ const boardEl = document.getElementById('board');
 const resetBtnEl = document.querySelector('button');
 const playerTurnDisplayEl = document.getElementById('player-turn-msg');
 const instructionDisplayEl = document.getElementById('instruction-msg');
+const player1BankLabelEl = document.getElementById('player1-bank-label');
+const player2BankLabelEl = document.getElementById('player2-bank-label');
 
 
 /*----- event listeners -----*/
-resetBtnEl.addEventListener('click', reset);
+resetBtnEl.addEventListener('click', boardSetUp);
 boardEl.addEventListener('click', handleClick);
+
 
 
 /*----- functions -----*/
 function init() {
+    boardSetUp();
+    setTimeout(function () {
+        let player1Input = prompt("Please enter Player 1's name", 'Player 1');
+        if (player1Input !== null) PLAYER_LOOKUP[1].name = player1Input;
+        let player2Input = prompt("Please enter Player 2's name", 'Player 2');
+        if (player2Input !== null) PLAYER_LOOKUP[-1].name = player2Input;
+        if (PLAYER_LOOKUP[1].name === PLAYER_LOOKUP[-1].name) {
+            PLAYER_LOOKUP[-1].name = prompt("Please enter Player 2's name (cannot match Player 1's)");
+        }
+        render();
+    }, 200)
+}
+
+function boardSetUp() {
     board = [4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0];
     winner = null;
-    firstPlayer(); // better to have this as separate function or just one-liner here?
+    firstPlayer();
     render();
-    PLAYER_LOOKUP[1].name = prompt("Please enter Player 1's name", 'Player 1');
-    PLAYER_LOOKUP[-1].name = prompt("Please enter Player 2's name", 'Player 2');
-    render(); // is there a way to not duplicate this but still have a game background for the prompt? I suppose I could re-render just the h2 DOM element... 
 }
 
 function firstPlayer() {
@@ -85,6 +99,9 @@ function render() {
         playerTurnDisplayEl.innerText = `${PLAYER_LOOKUP[winner].name} wins!`
         instructionDisplayEl.innerText = 'Congratulations!';
     }
+    
+    player1BankLabelEl.innerText = `${PLAYER_LOOKUP[1].name}'s bank`;
+    player2BankLabelEl.innerText = `${PLAYER_LOOKUP[-1].name}'s bank`;
 
     board.forEach((pit, idx) => {
         if (pit) {
@@ -98,13 +115,6 @@ function render() {
         }
     });
 
-}
-
-function reset() {
-    board = [4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0];
-    winner = null;
-    firstPlayer(); 
-    render();
 }
 
 init();
