@@ -32,7 +32,7 @@ pitAndBankEls.addEventListener('click', handleClick);
 function init() {
     board = [4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0];
     turn = 1;
-    winner = 0;
+    winner = null;
     render();
 }
 
@@ -54,21 +54,27 @@ function handleClick(evt) {
                 }
             }
         }
-    if (idx !== PLAYER_LOOKUP[turn].bankIdx) turn *= -1;;
+        if (idx !== PLAYER_LOOKUP[turn].bankIdx) turn *= -1;;
     }
     render();
 }
 
 function checkWin() {
-
+    if (board[PLAYER_LOOKUP[1].bankIdx] + board[PLAYER_LOOKUP[-1].bankIdx] === 24) {
+        if (board[PLAYER_LOOKUP[1].bankIdx] === board[PLAYER_LOOKUP[-1].bankIdx]) winner = 0;
+        else if (board[PLAYER_LOOKUP[1].bankIdx] > board[PLAYER_LOOKUP[-1].bankIdx]) winner = 1;
+        else winner = -1;
+    }
 }
 
 function render() {
-    if (!winner) {
+    if (winner === null) {
         playerTurnDisplayEl.innerText = `${PLAYER_LOOKUP[turn].name}'s turn`;
         instructionDisplayEl.innerText = 'Select a pit of seeds to sow'
-    }
-    else {
+    } else if (winner ===0) {
+        playerTurnDisplayEl.innerText = "It's a tie!";
+        instructionDisplayEl.innerText = 'Play again to give it another go!';
+    } else {
         playerTurnDisplayEl.innerText = `${PLAYER_LOOKUP[winner].name} wins!`
         instructionDisplayEl.innerText = 'Congratulations!';
     }
@@ -91,4 +97,6 @@ init();
 
 
 // NEXT STEPS: finish rendering second h2 instructions, and figure out winner.
-// there is an error: if it skips the other player's bank, somehow it also skips the next viable pit (after the bank)!!???! but only for pit 0, not other side.
+// not necessary but wondering: how do I grab DOM elements by class and iterate through them to do what I need?
+// refine graphics
+// implement icebox features.
