@@ -40,7 +40,7 @@
         - Each of the player banks should be empty.
         - Message should show which player goes first.
     - Render the board to the DOM [``render()``]
-    **DONE**
+    - **DONE**
 - When it's a player's turn:
     - The player clicks on a pit to indicate where they want to "pick up" the seeds.
         - They should only be able to select a shared pit with seeds in it.
@@ -58,12 +58,12 @@
         - If not, change player turn state.
     - Render the board to the DOM.  [``render()``]
         - **Icebox feature:** 'setInterval' is a method(?) that sets a time interval between iterating functions or something like that. I could use this when updating the # of seeds in each box.
-    **DONE**
+    - **DONE**
 - When game is over:
     - **Icebox feature:** Update user's running overall score [``updateUserScore()``]
     - Render DOM with win/lose/tie message [``render()``]
     - Reset button can be used to reinitialize board state [``init()``]
-    **DONE**
+    - **DONE**
 
 # App's State Data
 
