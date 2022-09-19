@@ -12,15 +12,15 @@
 ✅ **DONE** (Monday morning, 10am)
 
 ## Icebox
+- As a user, I want to be able to click a button to get a pop-up with information on mancala and its history.
+- As a user, I want the seeds to be sown sequentially with an interval (not all at once).
 - ✅ As a user, I want the app to randomly pick which player goes first for each game.
 - ✅ As a user, I want to be able to set my name instead of "Player 1" or "Player 2"
-- As a user, I want the seeds to be sown sequentially with an interval (not all at once).
-- As a user, I want a running tally of total wins and losses per player.
-- As a user, I want to be able to click a button to get a pop-up with information on mancala and its history.
-- As a user, I want the reset button to "click" (change color or give some indication of having been pushed).
-- As a user, I want to see a label so I know which side of the board is mine.
+- ✅ As a user, I want a running tally of total wins and losses per player.
+- ✅ As a user, I want the reset button to "click" (change color or give some indication of having been pushed).
 - As a user, I want to see individual seed images in each pit (rather than a number)
 - As a user, I want to see a design down the middle of board (between rows).
+- As a user, I want to see a label so I know which side of the board is mine.
 
 # Overall UI
 

@@ -2,11 +2,13 @@
 const PLAYER_LOOKUP = {
     '1': {
         name: 'Player 1',
-        bankIdx: 13
+        bankIdx: 13,
+        totalWins: 0
     },
     '-1': {
         name: 'Player 2',
-        bankIdx: 6
+        bankIdx: 6,
+        totalWins: 0
     }
 
 }
@@ -23,6 +25,7 @@ const playerTurnDisplayEl = document.getElementById('player-turn-msg');
 const instructionDisplayEl = document.getElementById('instruction-msg');
 const player1BankLabelEl = document.getElementById('player1-bank-label');
 const player2BankLabelEl = document.getElementById('player2-bank-label');
+const winCountsEl = document.getElementById('win-counts');
 
 
 /*----- event listeners -----*/
@@ -42,6 +45,8 @@ function init() {
         if (PLAYER_LOOKUP[1].name === PLAYER_LOOKUP[-1].name) {
             PLAYER_LOOKUP[-1].name = prompt("Please enter Player 2's name (cannot match Player 1's)");
         }
+        player1BankLabelEl.innerText = `${PLAYER_LOOKUP[1].name}'s bank`;
+        player2BankLabelEl.innerText = `${PLAYER_LOOKUP[-1].name}'s bank`;
         render();
     }, 200)
 }
@@ -66,7 +71,7 @@ function handleClick(evt) {
         while (numSeeds>0) {
             if (idx>13) idx = idx-14;
             else {
-                if (idx === PLAYER_LOOKUP[turn*-1].bankIdx) {
+                if (idx === PLAYER_LOOKUP[turn * -1].bankIdx) {
                     idx++;
                 } else {
                     board[idx] = board[idx] + 1;
@@ -83,8 +88,13 @@ function handleClick(evt) {
 function checkWin() {
     if (board[PLAYER_LOOKUP[1].bankIdx] + board[PLAYER_LOOKUP[-1].bankIdx] === 24) {
         if (board[PLAYER_LOOKUP[1].bankIdx] === board[PLAYER_LOOKUP[-1].bankIdx]) winner = 0;
-        else if (board[PLAYER_LOOKUP[1].bankIdx] > board[PLAYER_LOOKUP[-1].bankIdx]) winner = 1;
-        else winner = -1;
+        else if (board[PLAYER_LOOKUP[1].bankIdx] > board[PLAYER_LOOKUP[-1].bankIdx]) {
+            winner = 1;
+            PLAYER_LOOKUP[1].totalWins++;
+        } else {
+            winner = -1;
+            PLAYER_LOOKUP[-1].totalWins++;
+        }
     }
 }
 
@@ -92,29 +102,25 @@ function render() {
     if (winner === null) {
         playerTurnDisplayEl.innerText = `${PLAYER_LOOKUP[turn].name}'s turn`;
         instructionDisplayEl.innerText = 'Select a pit of seeds to sow clockwise to fill your bank'
-    } else if (winner ===0) {
+    } else if (winner === 0) {
         playerTurnDisplayEl.innerText = "It's a tie!";
         instructionDisplayEl.innerText = 'Play again to give it another go!';
     } else {
         playerTurnDisplayEl.innerText = `${PLAYER_LOOKUP[winner].name} wins!`
         instructionDisplayEl.innerText = 'Congratulations!';
+        winCountsEl.innerHTML = `${PLAYER_LOOKUP[turn].name}: ${PLAYER_LOOKUP[turn].totalWins} <br> ${PLAYER_LOOKUP[turn * -1].name}: ${PLAYER_LOOKUP[turn * -1].totalWins}`
     }
-    
-    player1BankLabelEl.innerText = `${PLAYER_LOOKUP[1].name}'s bank`;
-    player2BankLabelEl.innerText = `${PLAYER_LOOKUP[-1].name}'s bank`;
 
     board.forEach((pit, idx) => {
-        if (pit) {
-            if (board[idx] === 1) {
-                document.getElementById(`pit${idx}`).textContent = `${board[idx]} seed`;
-            } else {
-                document.getElementById(`pit${idx}`).textContent = `${board[idx]} seeds`;
-            }
+        if (!pit) {
+            document.getElementById(`pit${idx}`).innerText = '';
+            document.getElementById(`pit${idx}`).style.cursor = 'not-allowed';
+        } else if (board[idx] === 1) {
+            document.getElementById(`pit${idx}`).innerText = `${board[idx]} seed`;
         } else {
-            document.getElementById(`pit${idx}`).textContent = '';
+            document.getElementById(`pit${idx}`).innerText = `${board[idx]} seeds`;
         }
     });
-
 }
 
 init();

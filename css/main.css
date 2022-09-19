@@ -57,22 +57,27 @@ main {
     border: 2px solid #799496;
     padding: 10px;
     border-radius: 20px;
-    background-color: #799496; // formerly D17B0F
+    background-color: #799496; /*  formerly D17B0F */
 }
 
 #board div {
     display: flex;
     border: 2px solid #acc196;
     border-radius: 39px;
-    background-color: #acc196; // formerly d89849
+    background-color: #acc196; /* formerly d89849 */
     margin: 3px;
     padding: 5px;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 #pit13, #pit6 {
     grid-row: span 2;
+}
+
+#board .banks {
+    cursor: not-allowed;
 }
 
  #player1-bank-label, #player2-bank-label {
@@ -85,9 +90,13 @@ main {
     margin: 15px;
  }
 
+#win-counts {
+    margin-top: 50px;
+ }
+
  button {
     width: 200px;
-    margin: 50px;
+    margin: 30px;
     padding: 20px;
     font-size: 1.5em;
     font-weight: 300;
@@ -97,4 +106,40 @@ main {
     border: 0;
     justify-self: center;
     border-radius: 20px;
+    cursor: pointer;
  }
+
+ button:hover {
+    background-color: #acc196
+}
+ 
+ button:active {
+    background-color: #799496;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  button:hover span {
+    padding-right: 25px;
+  }
+  
+  button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
