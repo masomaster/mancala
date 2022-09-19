@@ -70,7 +70,7 @@ function checkWin() {
 function render() {
     if (winner === null) {
         playerTurnDisplayEl.innerText = `${PLAYER_LOOKUP[turn].name}'s turn`;
-        instructionDisplayEl.innerText = 'Select a pit of seeds to sow'
+        instructionDisplayEl.innerText = 'Select a pit of seeds to sow to fill your bank'
     } else if (winner ===0) {
         playerTurnDisplayEl.innerText = "It's a tie!";
         instructionDisplayEl.innerText = 'Play again to give it another go!';
@@ -96,7 +96,6 @@ function render() {
 init();
 
 
-// NEXT STEPS: finish rendering second h2 instructions, and figure out winner.
 // not necessary but wondering: how do I grab DOM elements by class and iterate through them to do what I need?
 // refine graphics
 // implement icebox features.

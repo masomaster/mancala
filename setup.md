@@ -9,6 +9,7 @@
 - As a user, I want to be able to click on a pit to pick up the seeds and the game automatically starts "sowing" them in the next pit.
 - As a user, I want to see a label so I know which bank is mine.
 - As a user, I want to see how many seeds are in each pit.
+**DONE** (Monday morning, 10am)
 
 ## Icebox
 - As a user, I want a running tally of total wins and losses per player.
@@ -57,10 +58,12 @@
         - If not, change player turn state.
     - Render the board to the DOM.  [``render()``]
         - **Icebox feature:** 'setInterval' is a method(?) that sets a time interval between iterating functions or something like that. I could use this when updating the # of seeds in each box.
+    **DONE**
 - When game is over:
     - **Icebox feature:** Update user's running overall score [``updateUserScore()``]
     - Render DOM with win/lose/tie message [``render()``]
-    - Reinitialize board state [``init()``]
+    - Reset button can be used to reinitialize board state [``init()``]
+    **DONE**
 
 # App's State Data
 
