@@ -9,18 +9,18 @@
 - As a user, I want to be able to click on a pit to pick up the seeds and the game automatically starts "sowing" them in the next pit.
 - As a user, I want to see a label so I know which bank is mine.
 - As a user, I want to see how many seeds are in each pit.
-**DONE** (Monday morning, 10am)
+✅ **DONE** (Monday morning, 10am)
 
 ## Icebox
+- ✅ As a user, I want the app to randomly pick which player goes first for each game.
+- As a user, I want to be able to set my name instead of "Player 1" or "Player 2"
+- As a user, I want the seeds to be sown sequentially with an interval (not all at once).
 - As a user, I want a running tally of total wins and losses per player.
-- As a user, I want the app to randomly pick which player goes first for each game.
-- As a user, I want to be able to pick which side of the board is mine.
+- As a user, I want to be able to click a button to get a pop-up with information on mancala and its history.
+- As a user, I want the reset button to "click" (change color or give some indication of having been pushed).
 - As a user, I want to see a label so I know which side of the board is mine.
 - As a user, I want to see individual seed images in each pit (rather than a number)
-- As a user, I want to be able to set my name instead of "Player 1" or "Player 2"
-- As a user, I want to be able to click a button to get a pop-up with information on mancala and its history.
 - As a user, I want to see a design down the middle of board (between rows).
-- As a user, I want the reset button to "click" (change color or give some indication of having been pushed).
 
 # Overall UI
 
@@ -42,7 +42,7 @@
         - Each of the player banks should be empty.
         - Message should show which player goes first.
     - Render the board to the DOM [``render()``]
-    - **DONE**
+    - ✅  **DONE**
 - When it's a player's turn:
     - The player clicks on a pit to indicate where they want to "pick up" the seeds.
         - They should only be able to select a shared pit with seeds in it.
@@ -60,12 +60,12 @@
         - If not, change player turn state.
     - Render the board to the DOM.  [``render()``]
         - **Icebox feature:** 'setInterval' is a method(?) that sets a time interval between iterating functions or something like that. I could use this when updating the # of seeds in each box.
-    - **DONE**
+    - ✅ **DONE**
 - When game is over:
     - **Icebox feature:** Update user's running overall score [``updateUserScore()``]
     - Render DOM with win/lose/tie message [``render()``]
     - Reset button can be used to reinitialize board state [``init()``]
-    - **DONE**
+    - ✅ **DONE**
 
 # App's State Data
 

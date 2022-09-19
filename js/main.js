@@ -24,16 +24,23 @@ const instructionDisplayEl = document.getElementById('instruction-msg');
 
 
 /*----- event listeners -----*/
-resetBtnEl.addEventListener('click', init);
+resetBtnEl.addEventListener('click', reset);
 boardEl.addEventListener('click', handleClick);
 
 
 /*----- functions -----*/
 function init() {
     board = [4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0];
-    turn = 1;
     winner = null;
+    firstPlayer(); // better to have this as separate function or just one-liner here?
     render();
+    PLAYER_LOOKUP[1].name = prompt("Please enter Player 1's name", 'Player 1');
+    PLAYER_LOOKUP[-1].name = prompt("Please enter Player 2's name", 'Player 2');
+    render(); // is there a way to not duplicate this but still have a game background for the prompt? I suppose I could re-render just the h2 DOM element... 
+}
+
+function firstPlayer() {
+    Math.random() < .5 ? turn = -1 : turn = 1;
 }
 
 function handleClick(evt) {
@@ -93,9 +100,11 @@ function render() {
 
 }
 
+function reset() {
+    board = [4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0];
+    winner = null;
+    firstPlayer(); 
+    render();
+}
+
 init();
-
-
-// not necessary but wondering: how do I grab DOM elements by class and iterate through them to do what I need?
-// refine graphics
-// implement icebox features.
