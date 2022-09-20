@@ -18,13 +18,54 @@ body {
 }
 
 h1 {
+    position: relative;
     font-family: "Planet S";
     background-color: #14080e;
     color: white;
     margin: 0;
     padding: 60px 30px 40px; 
     font-size: 100px;
+    z-index: +2;
+}
 
+img {
+    height: 40px;
+    width: 40px;
+    margin: 20px;
+    float: right;
+}
+
+img:hover {
+    cursor: pointer;
+}
+
+@keyframes info-button-slide {
+    from {top: -89px;}
+    to {top: 211px;}
+}
+
+.info-box {
+    position: absolute;
+    right: 0;
+    top: -89px;
+    height: 300px;
+    width: 500px;
+    background-color: aqua;
+    /* animation-name: info-button-slide; */
+    animation-duration: 1s;
+    transition: all 1s;
+}
+
+/* .hidden {
+    opacity: 100;
+    top: -89px;
+    z-index: +1;
+} */
+
+.visible {
+    opacity: 100;
+    z-index: +1;
+    top: 211px;
 }
 
 h2 {
@@ -32,6 +73,7 @@ h2 {
 }
 
 #player-turn-msg {
+    clear: right;
     margin-top: 60px;
     margin-bottom: 3px;
 }

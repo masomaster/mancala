@@ -26,12 +26,14 @@ const instructionDisplayEl = document.getElementById('instruction-msg');
 const player1BankLabelEl = document.getElementById('player1-bank-label');
 const player2BankLabelEl = document.getElementById('player2-bank-label');
 const winCountsEl = document.getElementById('win-counts');
+const infoButtonEl = document.querySelector('img');
+const infoWindowEl = document.querySelector('.info-box');
 
 
 /*----- event listeners -----*/
 resetBtnEl.addEventListener('click', boardSetUp);
 boardEl.addEventListener('click', handleClick);
-
+infoButtonEl.addEventListener('click', showInfo);
 
 
 /*----- functions -----*/
@@ -54,7 +56,7 @@ function init() {
 function boardSetUp() {
     board = [4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0];
     winner = null;
-    firstPlayer();
+    // firstPlayer(); un-comment after testing is done.
     render();
 }
 
@@ -96,6 +98,13 @@ function checkWin() {
             PLAYER_LOOKUP[-1].totalWins++;
         }
     }
+}
+
+function showInfo() {
+    // create new div ; need to have status id visible or hidden. Need to also have X button to close div (with event listener). Could slide out from "under" the h1 banner, or could appear using opacity.
+    infoWindowEl.classList.add('visible');
+    // style.animation='info-button-slide';
+    console.log('should be moving!')
 }
 
 function render() {
