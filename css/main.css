@@ -1,10 +1,3 @@
-@import url(https://db.onlinewebfonts.com/c/6a43a770090c70c79171e3084f1106f6?family=Planet+S);
-@font-face {
-    font-family: "Planet S"; 
-    src: url("https://db.onlinewebfonts.com/t/6a43a770090c70c79171e3084f1106f6.eot"); 
-    src: url("https://db.onlinewebfonts.com/t/6a43a770090c70c79171e3084f1106f6.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/6a43a770090c70c79171e3084f1106f6.woff2") format("woff2"), url("https://db.onlinewebfonts.com/t/6a43a770090c70c79171e3084f1106f6.woff") format("woff"), url("https://db.onlinewebfonts.com/t/6a43a770090c70c79171e3084f1106f6.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/6a43a770090c70c79171e3084f1106f6.svg#Planet S") format("svg"); 
-}
-
 body {
     text-align: center;
     font-family: 'Spectral', serif;
@@ -15,11 +8,11 @@ body {
 
 h1 {
     position: relative;
-    font-family: "Planet S";
+    font-family: 'Syncopate', sans-serif;
     background-color: #ed7b84;
     color: white;
     margin: 0;
-    padding: 60px 30px 40px; 
+    padding: 100px 30px 80px; 
     font-size: 100px;
     z-index: +2;
 }
