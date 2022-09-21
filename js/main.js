@@ -28,12 +28,14 @@ const player2BankLabelEl = document.getElementById('player2-bank-label');
 const winCountsEl = document.getElementById('win-counts');
 const infoButtonEl = document.querySelector('img');
 const infoWindowEl = document.querySelector('.info-box');
+const closeInfoWindowEl = document.getElementById('close');
 
 
 /*----- event listeners -----*/
 resetBtnEl.addEventListener('click', boardSetUp);
 boardEl.addEventListener('click', handleClick);
 infoButtonEl.addEventListener('click', showInfo);
+closeInfoWindowEl.addEventListener('click', hideInfo);
 
 
 /*----- functions -----*/
@@ -56,7 +58,7 @@ function init() {
 function boardSetUp() {
     board = [4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0];
     winner = null;
-    // firstPlayer(); un-comment after testing is done.
+    firstPlayer();
     render();
 }
 
@@ -84,11 +86,12 @@ function handleClick(evt) {
         }
         if (idx !== PLAYER_LOOKUP[turn].bankIdx) turn *= -1;;
     }
+    checkWin();
     render();
 }
 
 function checkWin() {
-    if (board[PLAYER_LOOKUP[1].bankIdx] + board[PLAYER_LOOKUP[-1].bankIdx] === 24) {
+    if (board[0] + board[1] + board[2] + board[3] + board[4] + board[5] === 0 || board[7] + board[8] + board[9] + board[10] + board[11] + board[12] === 0 ) {
         if (board[PLAYER_LOOKUP[1].bankIdx] === board[PLAYER_LOOKUP[-1].bankIdx]) winner = 0;
         else if (board[PLAYER_LOOKUP[1].bankIdx] > board[PLAYER_LOOKUP[-1].bankIdx]) {
             winner = 1;
@@ -101,10 +104,13 @@ function checkWin() {
 }
 
 function showInfo() {
-    // create new div ; need to have status id visible or hidden. Need to also have X button to close div (with event listener). Could slide out from "under" the h1 banner, or could appear using opacity.
     infoWindowEl.classList.add('visible');
-    // style.animation='info-button-slide';
-    console.log('should be moving!')
+    infoWindowEl.classList.remove('hidden');
+}
+
+function hideInfo() {
+    infoWindowEl.classList.add('hidden');
+    infoWindowEl.classList.remove('visible');
 }
 
 function render() {
