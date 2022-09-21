@@ -46,7 +46,7 @@ img:hover {
 }
 
 .hidden {
-    right: -605px;
+    top: -420px;
 }
 
 h2 {
@@ -205,14 +205,35 @@ button:hover span:after {
 
 @media only screen and (max-width: 1100px) {
     h1 {
-        font-size: 40px;
-        padding: 40px 30px 30px; 
+        font-size: 20px;
+        padding: 10px; 
     }
 
     body > img {
         height: 30px;
         width: 30px;
         margin: 15px;
+    }
+
+    .info-box {
+        position: absolute;
+        top: 50px;
+        right: 10px;
+        height: 510px;
+        width: 400px;
+        grid-template-rows: 10% 1fr 1fr 1fr;
+    }
+
+    .info-box div {
+        grid-area: 2 / 4 / 3 / 6
+    }
+
+    .hidden {
+        top: -500px;
+    }
+
+    h2 {
+        font-size: 15px;
     }
 
     #player-turn-msg {
@@ -237,8 +258,8 @@ button:hover span:after {
         grid-template-rows: repeat(8, 1fr);
         grid-template-columns: repeat(2, 1fr);
         align-items: center;
-        width: 60%;
-        height: 80%;
+        height: 100%;
+        width: 50%;
         grid-template-areas:
             'o p'
             'n a'
@@ -248,15 +269,18 @@ button:hover span:after {
             'j e'
             'i f'
             'h g';
+        grid-column-gap: 0;
+        grid-row-gap: 10px;
     }
 
     #board div {
         box-sizing: border-box;
         height: 100%;
-        width: 60%;
+        max-height: 150px;
+        width: 100%;
+        max-width: 75px;
         justify-self: center;
-        margin: 2%;
-        padding: 12%;
+        padding: 6%;
         border-radius: 50%;
     }
 
@@ -265,6 +289,7 @@ button:hover span:after {
         grid-column: span 2;
         width: 75%;
         border-radius: 40px;
+        max-width: 200px;
     }
 
     #pit0 {
@@ -329,5 +354,8 @@ button:hover span:after {
 
     button {
         margin: 10px;
+        width: 150px;
+        margin: 15px;
+        font-size: 1em;
     }
 }

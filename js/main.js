@@ -59,7 +59,7 @@ function init() {
 function boardSetUp() {
     board = [4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0];
     winner = null;
-    // firstPlayer();
+    firstPlayer();
     render();
 }
 
