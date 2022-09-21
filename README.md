@@ -5,8 +5,9 @@ By Mason Lancaster
 Mancala is an ancient and global game, possibly dating back as far as the 2nd century and having hundreds of variations spanning every continent. The game involves selecting "seeds" from among various "pits," then "sowing" those seeds among the pits with the goal of accumulating the most seeds in one's own "bank." <a href = "https://en.wikipedia.org/wiki/Mancala" target="_blank">Read more</a><br>
 
 <img title="Wireframe of Mancala" alt="wireframe" src="/Game screenshot.png">
-**insert updated screen shot here**
 
+**insert updated screen shot here
+**
 ## Technologies Used
 - HTML
 - CSS
