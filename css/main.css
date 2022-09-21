@@ -1,7 +1,3 @@
-/* * {
-    box-sizing: border-box;
-} */
-
 @import url(http://db.onlinewebfonts.com/c/6a43a770090c70c79171e3084f1106f6?family=Planet+S);
 @font-face {
     font-family: "Planet S"; 
@@ -13,14 +9,14 @@ body {
     text-align: center;
     font-family: 'Spectral', serif;
     font-weight: 300;
-    background-color: #e9eb93;
+    background-color: #f5dbcb;
     margin: 0;
 }
 
 h1 {
     position: relative;
     font-family: "Planet S";
-    background-color: #14080e;
+    background-color: #ed7b84;
     color: white;
     margin: 0;
     padding: 60px 30px 40px; 
@@ -44,8 +40,8 @@ img:hover {
     right: 0;
     height: 420px;
     width: 600px;
-    background-color: aqua;
-    animation-duration: 1s;
+    background-color: #ed7b84;
+    border: 2px #F44551;
     transition: all 1s;
     z-index: +1;
     display: grid;
@@ -56,11 +52,7 @@ img:hover {
 }
 
 .hidden {
-    top: -209px;
-}
-
-.visible {
-    top: 211px;
+    right: -600px;
 }
 
 h2 {
@@ -74,7 +66,7 @@ h2 {
 #close {
     justify-self: right;
     padding-right: 10px;
-    color: grey;
+    color: white;
     grid-area: 1 / 5 / 2 / 6; 
     font-size: 20px;
     cursor: pointer;
@@ -101,16 +93,23 @@ div img {
     clear: right;
     margin-top: 60px;
     margin-bottom: 3px;
+    transition: all 1s;
 }
 
 #instruction-msg {
     margin-top: 3px;
     margin-bottom: 40px;
+    transition: all 1s;
+}
+
+.invisible {
+    opacity: 0%;
 }
 
 main {
     display: flex;
     justify-content: center;
+    transition: all 1s;
 }
 
 #board {
@@ -121,17 +120,17 @@ main {
     grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 4px;
     grid-row-gap: 32px;
-    border: 2px solid #799496;
+    border: 2px solid #7eb77f;
     padding: 10px;
     border-radius: 20px;
-    background-color: #799496; /*  formerly D17B0F */
+    background-color: #7eb77f; /*  formerly D17B0F */
 }
 
 #board div {
     display: flex;
-    border: 2px solid #acc196;
+    border: 2px solid #d6d5b3;
     border-radius: 39px;
-    background-color: #acc196; /* formerly d89849 */
+    background-color: #d6d5b3; /* formerly d89849 */
     margin: 3px;
     padding: 5px;
     justify-content: center;
@@ -168,13 +167,14 @@ main {
     font-size: 1.5em;
     font-weight: 300;
     font-family: 'Spectral', serif;
-    background-color: #49475b;
+    background-color: #ed7b84;
     color: white;
     border: 0;
     justify-self: center;
     border-radius: 20px;
     cursor: pointer;
- }
+    transition: all 1s;
+}
 
  button:hover {
     background-color: #acc196

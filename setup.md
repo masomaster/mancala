@@ -13,6 +13,7 @@
 
 ## Icebox
 - As a user, I want the page to have responsive design (esp. for phone-size screens).
+    - Could make board vertical for phone/tablet screen
 - As a user, I want to play against a computer that randomly picks pits.
     - If implemented, should also add a selector at start to choose human or computer opponent.
 - As a user, I want the seeds to be sown sequentially with an interval (not all at once). Try tools from here: https://www.youtube.com/watch?v=705XCEruZFs&ab_channel=Fireship
@@ -29,8 +30,10 @@
 ## Issues to Fix
 - h1 font doesn't appear in GitHub Page (io)
 - finish info box styling
+    - can make everything else 0% opacity when box is visible
 - improve color palette
 - refine styling (e.g. borders on boxes come back?)
+- make looping time-lapse video in README instead of screenshot?
 
 # Overall UI
 

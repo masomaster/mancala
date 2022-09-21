@@ -19,16 +19,17 @@ let turn, board, winner, startingPit;
 
 
 /*----- cached element references -----*/
-const boardEl = document.getElementById('board');
-const resetBtnEl = document.querySelector('button');
-const playerTurnDisplayEl = document.getElementById('player-turn-msg');
-const instructionDisplayEl = document.getElementById('instruction-msg');
-const player1BankLabelEl = document.getElementById('player1-bank-label');
-const player2BankLabelEl = document.getElementById('player2-bank-label');
-const winCountsEl = document.getElementById('win-counts');
 const infoButtonEl = document.querySelector('img');
 const infoWindowEl = document.querySelector('.info-box');
 const closeInfoWindowEl = document.getElementById('close');
+const playerTurnDisplayEl = document.getElementById('player-turn-msg');
+const instructionDisplayEl = document.getElementById('instruction-msg');
+const mainEl = document.querySelector('main');
+const boardEl = document.getElementById('board');
+const player1BankLabelEl = document.getElementById('player1-bank-label');
+const player2BankLabelEl = document.getElementById('player2-bank-label');
+const winCountsEl = document.getElementById('win-counts');
+const resetBtnEl = document.querySelector('button');
 
 
 /*----- event listeners -----*/
@@ -104,13 +105,19 @@ function checkWin() {
 }
 
 function showInfo() {
-    infoWindowEl.classList.add('visible');
     infoWindowEl.classList.remove('hidden');
+    playerTurnDisplayEl.classList.add('invisible');
+    instructionDisplayEl.classList.add('invisible');
+    mainEl.classList.add('invisible');
+    resetBtnEl.classList.add('invisible');
 }
 
 function hideInfo() {
     infoWindowEl.classList.add('hidden');
-    infoWindowEl.classList.remove('visible');
+    playerTurnDisplayEl.classList.remove('invisible');
+    instructionDisplayEl.classList.remove('invisible');
+    mainEl.classList.remove('invisible');
+    resetBtnEl.classList.remove('invisible');
 }
 
 function render() {

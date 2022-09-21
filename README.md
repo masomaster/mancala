@@ -6,7 +6,7 @@ Mancala is an ancient and global game, possibly dating back as far as the 2nd ce
 
 <img title="Wireframe of Mancala" alt="wireframe" src="/Game screenshot.png">
 
-<strong>insert updated screen shot here</strong>
+<strong>[Insert updated screenshot]</strong>
 
 ## Technologies Used
 - HTML
@@ -17,7 +17,7 @@ Mancala is an ancient and global game, possibly dating back as far as the 2nd ce
 Select a pit to begin sowing seeds in the next (clockwise) pit to collect seeds in your bank. (Skips opponent's bank.) The game is over when all pits on one side of the board are empty; whoever has more seeds in their bank wins.
 
 ## Getting Started
-<a href = "https://masomaster.github.io/mancala/">Click here to play!</a>
+<a href = "https://masomaster.github.io/mancala/" target="_blank">Click here to play!</a>
 
 ## Next Steps
 - Implementing responsive design
