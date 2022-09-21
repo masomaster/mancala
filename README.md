@@ -6,8 +6,8 @@ Mancala is an ancient and global game, possibly dating back as far as the 2nd ce
 
 <img title="Wireframe of Mancala" alt="wireframe" src="/Game screenshot.png">
 
-**insert updated screen shot here
-**
+<strong>insert updated screen shot here</strong>
+
 ## Technologies Used
 - HTML
 - CSS
