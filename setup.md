@@ -26,6 +26,12 @@
 - As a user, I want to see a design down the middle of board (between rows).
 - As a user, I want to see a label so I know which side of the board is mine.
 
+## Issues to Fix
+- h1 font doesn't appear in GitHub Page (io)
+- finish info box styling
+- improve color palette
+- refine styling (e.g. borders on boxes come back?)
+
 # Overall UI
 
 - Minimalist clean design or honor ancient roots?
