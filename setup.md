@@ -29,10 +29,6 @@
 
 ## Issues to Fix
 - h1 font doesn't appear in GitHub Page (io)
-- finish info box styling
-    - can make everything else 0% opacity when box is visible
-- improve color palette
-- refine styling (e.g. borders on boxes come back?)
 - make looping time-lapse video in README instead of screenshot?
 
 # Overall UI

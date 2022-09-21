@@ -1,8 +1,8 @@
-@import url(http://db.onlinewebfonts.com/c/6a43a770090c70c79171e3084f1106f6?family=Planet+S);
+@import url(https://db.onlinewebfonts.com/c/6a43a770090c70c79171e3084f1106f6?family=Planet+S);
 @font-face {
     font-family: "Planet S"; 
-    src: url("http://db.onlinewebfonts.com/t/6a43a770090c70c79171e3084f1106f6.eot"); 
-    src: url("http://db.onlinewebfonts.com/t/6a43a770090c70c79171e3084f1106f6.eot?#iefix") format("embedded-opentype"), url("http://db.onlinewebfonts.com/t/6a43a770090c70c79171e3084f1106f6.woff2") format("woff2"), url("http://db.onlinewebfonts.com/t/6a43a770090c70c79171e3084f1106f6.woff") format("woff"), url("http://db.onlinewebfonts.com/t/6a43a770090c70c79171e3084f1106f6.ttf") format("truetype"), url("http://db.onlinewebfonts.com/t/6a43a770090c70c79171e3084f1106f6.svg#Planet S") format("svg"); 
+    src: url("https://db.onlinewebfonts.com/t/6a43a770090c70c79171e3084f1106f6.eot"); 
+    src: url("https://db.onlinewebfonts.com/t/6a43a770090c70c79171e3084f1106f6.eot?#iefix") format("embedded-opentype"), url("http://db.onlinewebfonts.com/t/6a43a770090c70c79171e3084f1106f6.woff2") format("woff2"), url("http://db.onlinewebfonts.com/t/6a43a770090c70c79171e3084f1106f6.woff") format("woff"), url("http://db.onlinewebfonts.com/t/6a43a770090c70c79171e3084f1106f6.ttf") format("truetype"), url("http://db.onlinewebfonts.com/t/6a43a770090c70c79171e3084f1106f6.svg#Planet S") format("svg"); 
 }
 
 body {
@@ -37,26 +37,27 @@ img:hover {
 
 .info-box {
     position: absolute;
-    right: 0;
+    top: 230px;
+    right: 20px;
     height: 420px;
     width: 600px;
     background-color: #ed7b84;
-    border: 2px #F44551;
+    border: 2px solid #F44551;
     transition: all 1s;
     z-index: +1;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: .2fr, 1fr, 1fr, 1fr, 1fr;
+    grid-template-rows: 20% 1fr 1fr 1fr;
     grid-column-gap: 5px;
     grid-row-gap: 5px;
 }
 
 .hidden {
-    right: -600px;
+    right: -605px;
 }
 
 h2 {
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .info-box h2 {
@@ -120,7 +121,7 @@ main {
     grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 4px;
     grid-row-gap: 32px;
-    border: 2px solid #7eb77f;
+    border: 2px solid #5AA85B;
     padding: 10px;
     border-radius: 20px;
     background-color: #7eb77f; /*  formerly D17B0F */
@@ -128,7 +129,7 @@ main {
 
 #board div {
     display: flex;
-    border: 2px solid #d6d5b3;
+    border: 2px solid #B3B287;
     border-radius: 39px;
     background-color: #d6d5b3; /* formerly d89849 */
     margin: 3px;
@@ -146,13 +147,12 @@ main {
     cursor: not-allowed;
 }
 
- #player1-bank-label, #player2-bank-label {
+#player1-bank-label, #player2-bank-label {
     border: none;
     display: grid;
     align-content: center;
-    width: 80px;
+    width: 100px;
     font-size: 1.4em;
-    font-weight: 400;
     margin: 15px;
  }
 
@@ -160,7 +160,7 @@ main {
     margin-top: 50px;
  }
 
- button {
+button {
     width: 200px;
     margin: 30px;
     padding: 20px;
@@ -173,14 +173,16 @@ main {
     justify-self: center;
     border-radius: 20px;
     cursor: pointer;
-    transition: all 1s;
+    transition: all 0.5s;
+    transition-property: opacity;
+    transition-duration: 1s;
 }
 
- button:hover {
-    background-color: #acc196
+button:hover {
+    background-color: #7eb77f;
 }
  
- button:active {
+button:active {
     background-color: #799496;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
