@@ -12,8 +12,8 @@ h1 {
     background-color: #ed7b84;
     color: white;
     margin: 0;
-    padding: 100px 30px 80px; 
-    font-size: 100px;
+    padding: 30px; 
+    font-size: 7vh;
     z-index: +2;
 }
 
@@ -30,7 +30,7 @@ img:hover {
 
 .info-box {
     position: absolute;
-    top: 304px;
+    top: 160px;
     right: 20px;
     height: 420px;
     width: 600px;
@@ -109,8 +109,8 @@ main {
     width: 70%;
     max-width: 1500px;
     height: 100%;
-    min-height: 250px;
-    max-height: 500px;
+    min-height: 200px;
+    /* max-height: 6px; */
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(2, 1fr);
@@ -134,7 +134,7 @@ main {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    font-size: 1.8vw;
+    font-size: 2vh;
 }
 
 .banks {
@@ -213,7 +213,7 @@ button:hover span:after {
     opacity: 0%;
 }
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 800px) {
     body {
         height: 100%;
         width: 100%;
@@ -225,6 +225,9 @@ button:hover span:after {
     }
 
     body > img {
+        position: absolute;
+        right: 10px;
+        top: 50px;
         height: 30px;
         width: 30px;
         margin: 15px;
@@ -252,23 +255,26 @@ button:hover span:after {
 
     .hidden {
         top: -500px;
+        opacity: 0%;
     }
 
     h2 {
-        font-size: 15px;
+        font-size: 20px;
     }
 
     #player-turn-msg {
-        margin-top: 15px;
+        margin-top: 25px;
     }
 
     #instruction-msg {
         margin-bottom: 15px;
+        font-size: 15px;
     }
 
     #player1-bank-label, #player2-bank-label {
         align-content: center;
         width: 100%;
+        font-size: 20px;
     }
 
     main {
@@ -377,9 +383,10 @@ button:hover span:after {
     }
 
     button {
-        margin: 10px;
+        margin: 5px;
         width: 150px;
-        margin: 15px;
+        max-height: 50px;
         font-size: 1em;
+        padding: 15px;
     }
 }
