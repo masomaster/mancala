@@ -15,7 +15,8 @@ const PLAYER_LOOKUP = {
 
 
 /*----- app's state (variables) -----*/
-let turn, board, winner, startingPit;
+let turn, board, winner, humanOpponent;
+let startingPit = null;
 
 
 /*----- cached element references -----*/
@@ -34,7 +35,7 @@ const resetBtnEl = document.querySelector('button');
 
 /*----- event listeners -----*/
 resetBtnEl.addEventListener('click', boardSetUp);
-boardEl.addEventListener('click', handleClick);
+boardEl.addEventListener('click', humanClick);
 infoButtonEl.addEventListener('click', showInfo);
 closeInfoWindowEl.addEventListener('click', hideInfo);
 
@@ -67,26 +68,38 @@ function firstPlayer() {
     Math.random() < .5 ? turn = -1 : turn = 1;
 }
 
-function handleClick(evt) {
+function humanClick(evt) {
     startingPit = parseInt(evt.target.id.slice(3));
-    if (evt.target !== 'board' && board[startingPit] && startingPit !== 13 && startingPit !== 6 && board[startingPit] !== 0) {
-        let numSeeds = board[startingPit]
-        board[startingPit] = 0;
-        let idx = startingPit + 1;
-        while (numSeeds>0) {
-            if (idx>13) idx = idx-14;
-            else {
-                if (idx === PLAYER_LOOKUP[turn * -1].bankIdx) {
-                    idx++;
-                } else {
-                    board[idx] = board[idx] + 1;
-                    numSeeds--;
-                    if (numSeeds !== 0) idx++;
-                }
+    if (evt.target !== 'board' && board[startingPit] && startingPit !== 13 && startingPit !== 6 && board[startingPit] !== 0) sowSeeds(startingPit);
+}
+
+function compOpponent() {
+    startingPit = null;
+    while (startingPit === 6 || board[startingPit] === 0 || startingPit===null) {
+        startingPit = Math.floor(Math.random() * 13);
+    }
+    console.log(startingPit);
+    sowSeeds(startingPit);
+    startingPit = null;
+}
+
+function sowSeeds(startingPit) {
+    let numSeeds = board[startingPit]
+    board[startingPit] = 0;
+    let idx = startingPit + 1;
+    while (numSeeds>0) {
+        if (idx>13) idx = idx-14;
+        else {
+            if (idx === PLAYER_LOOKUP[turn * -1].bankIdx) {
+                idx++;
+            } else {
+                board[idx] = board[idx] + 1;
+                numSeeds--;
+                if (numSeeds !== 0) idx++;
             }
         }
-        if (idx !== PLAYER_LOOKUP[turn].bankIdx) turn *= -1;;
     }
+    if (idx !== PLAYER_LOOKUP[turn].bankIdx) turn *= -1;;
     checkWin();
     render();
 }
