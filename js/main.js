@@ -15,9 +15,10 @@ const PLAYER_LOOKUP = {
 
 
 /*----- app's state (variables) -----*/
-let turn, board, winner, humanOpponent;
+let turn, board, winner, timer;
 let startingPit = null;
-
+let lastPit = null;
+let humanOpponent=false // this is hard set for testing. make empty undefined after testing.
 
 /*----- cached element references -----*/
 const infoButtonEl = document.querySelector('img');
@@ -35,7 +36,6 @@ const resetBtnEl = document.querySelector('button');
 
 /*----- event listeners -----*/
 resetBtnEl.addEventListener('click', boardSetUp);
-boardEl.addEventListener('click', humanClick);
 infoButtonEl.addEventListener('click', showInfo);
 closeInfoWindowEl.addEventListener('click', hideInfo);
 
@@ -58,10 +58,14 @@ function init() {
 }
 
 function boardSetUp() {
+    clearTimeout(timer);
     board = [4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0];
     winner = null;
     firstPlayer();
     render();
+    if (humanOpponent === false && turn === -1) timer = setTimeout(compOpponent, 1000);
+    else boardEl.addEventListener('click', humanClick);
+        
 }
 
 function firstPlayer() {
@@ -78,7 +82,6 @@ function compOpponent() {
     while (startingPit === 6 || board[startingPit] === 0 || startingPit===null) {
         startingPit = Math.floor(Math.random() * 13);
     }
-    console.log(startingPit);
     sowSeeds(startingPit);
     startingPit = null;
 }
@@ -98,23 +101,42 @@ function sowSeeds(startingPit) {
                 if (numSeeds !== 0) idx++;
             }
         }
+        lastPit = idx;
     }
-    if (idx !== PLAYER_LOOKUP[turn].bankIdx) turn *= -1;;
     checkWin();
-    render();
+}
+
+function nextTurn() {
+    if (humanOpponent === false && turn === -1) {
+        timer = setTimeout(compOpponent, 1000); 
+        boardEl.removeEventListener('click', humanClick);
+
+    }
+    if (humanOpponent === true || turn === 1) {
+        boardEl.addEventListener('click', humanClick);
+    }
+
 }
 
 function checkWin() {
     if (board[0] + board[1] + board[2] + board[3] + board[4] + board[5] === 0 || board[7] + board[8] + board[9] + board[10] + board[11] + board[12] === 0 ) {
+        clearTimeout(timer);
         if (board[PLAYER_LOOKUP[1].bankIdx] === board[PLAYER_LOOKUP[-1].bankIdx]) winner = 0;
         else if (board[PLAYER_LOOKUP[1].bankIdx] > board[PLAYER_LOOKUP[-1].bankIdx]) {
             winner = 1;
             PLAYER_LOOKUP[1].totalWins++;
-        } else {
+        } else if (board[PLAYER_LOOKUP[1].bankIdx] < board[PLAYER_LOOKUP[-1].bankIdx]) {
             winner = -1;
             PLAYER_LOOKUP[-1].totalWins++;
         }
+        boardEl.removeEventListener('click', humanClick);
+    } else {
+        if (lastPit !== PLAYER_LOOKUP[turn].bankIdx) {
+            turn *= -1;
+        }   
+        nextTurn();
     }
+    render();
 }
 
 function showInfo() {
@@ -143,7 +165,7 @@ function render() {
     } else {
         playerTurnDisplayEl.innerText = `${PLAYER_LOOKUP[winner].name} wins!`
         instructionDisplayEl.innerText = 'Congratulations!';
-        winCountsEl.innerHTML = `${PLAYER_LOOKUP[turn].name}: ${PLAYER_LOOKUP[turn].totalWins} <br> ${PLAYER_LOOKUP[turn * -1].name}: ${PLAYER_LOOKUP[turn * -1].totalWins}`
+        winCountsEl.innerHTML = `${PLAYER_LOOKUP[winner].name}: ${PLAYER_LOOKUP[winner].totalWins} <br> ${PLAYER_LOOKUP[winner * -1].name}: ${PLAYER_LOOKUP[winner * -1].totalWins}`
     }
 
     board.forEach((pit, idx) => {
@@ -152,8 +174,10 @@ function render() {
             document.getElementById(`pit${idx}`).style.cursor = 'not-allowed';
         } else if (board[idx] === 1) {
             document.getElementById(`pit${idx}`).innerText = `${board[idx]} seed`;
+            document.getElementById(`pit${idx}`).style.cursor = 'pointer';
         } else {
             document.getElementById(`pit${idx}`).innerText = `${board[idx]} seeds`;
+            document.getElementById(`pit${idx}`).style.cursor = 'pointer';
         }
     });
 }
