@@ -99,14 +99,20 @@
 
 ## Pseudocode
 
-- Page-load input window
+- Page-load input window [[init function]]
     - duplicate info box and and center and resize to get hidden features / class; also duplicate JS code for hiding other elements when input is showing.
     - render two buttons; add event listeners.
     - if computer selected, change Player 2 name to 'Computer'
     - Then load one or two text input fields for player name(s) with one button. capture input.value and save as player name(s).
 - JS for computer opponent
-    - Need a new boolean variable of perhaps humanOpponent;
-    - something needs to first check humanOpponent. If false, pick random pit, else listen to evt.target. Then proceed with if statement (line 72).
-        - if computer is the randomly-chosen first player, computer's move needs to be embedded in boardSetUp, since we can't be waiting for handleClick to listen for a board click.
-        - but then computer move also needs to be re-initiated each time it's the computer's turn.
-        - I think I want to make a new function called sowSeeds, then have one handleClick for human opponent (rename function more specifically) and another for computer opponent. Each calls sowSeeds.
+    - ✅ Need a new boolean variable of perhaps humanOpponent;
+    - ✅ something (a nextTurn function?) needs to first check humanOpponent. If false, pick random pit, else process evt.target. Then proceed with if statement (line 72).
+        - ✅ if computer is the randomly-chosen first player, computer's move needs to be embedded in boardSetUp, since we can't be waiting for handleClick to listen for a board click.
+        - ✅ but then computer move also needs to be re-initiated each time it's the computer's turn.
+        - ✅ also... I *could* turn off the event listener, but practically speaking no one will be able to click a pit in the instant it takes for the computer to take their move, so while it's a bit messy, I think I can skip that step for now. No, I do need to do this, because I've set a 1 sec delay for computer's turn. Also do I want the delay at the start of computer's turn? that could be built in to the init function, because it's already built in to subsequent turns in the sowSeeds fcn.
+        - ✅ I think I want to make a new function called sowSeeds, then have one handleClick for human opponent (rename function more specifically) and another for computer opponent. Each calls sowSeeds.
+        - problem to fix: computer keeps playing after win! Even human can play after win.
+        - ✅ bug: my whole row was clear except for pit 12. I clicked on 12 and the event listener registered, but it wouldn't render any change (didn't check board array directly). I then clicked another pit (1) and it worked and registered my win and rendered. 
+            - ✅ New version of similar problem -- same situation (my row empty except pit 12) but apparently no buttons have event listeners now
+            - ✅ just set it up again -- no changes to code -- and it worked. why?
+            - ✅ solution: new version with similar problem happened because I'd already won and render then reset the board and rendered so it still wouldn't allow movees. needed to reset.
