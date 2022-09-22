@@ -275,6 +275,7 @@ button:hover span:after {
     #instruction-msg {
         margin-bottom: 15px;
         font-size: 15px;
+        position: relative;
     }
 
     #player1-bank-label, #player2-bank-label {
