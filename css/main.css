@@ -13,7 +13,7 @@ h1 {
     color: white;
     margin: 0;
     padding: 30px; 
-    font-size: 7vh;
+    font-size: 36px;
     z-index: +2;
 }
 
@@ -22,6 +22,7 @@ body > img {
     width: 40px;
     margin: 20px;
     float: right;
+    z-index: +1;
 }
 
 img:hover {
@@ -30,7 +31,7 @@ img:hover {
 
 .info-box {
     position: absolute;
-    top: 160px;
+    top: 118px;
     right: 20px;
     height: 420px;
     width: 600px;
@@ -70,6 +71,7 @@ h2 {
     grid-area: 2 / 1 / 5 / 4;
     text-align: justify;
     padding: 0 20px 20px;
+    transition: 1s;
 }
 
 .info-box div {
@@ -110,7 +112,6 @@ main {
     max-width: 1500px;
     height: 100%;
     min-height: 200px;
-    /* max-height: 6px; */
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(2, 1fr);
@@ -134,7 +135,7 @@ main {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    font-size: 2vh;
+    font-size: 1.1em;
 }
 
 .banks {
@@ -241,6 +242,7 @@ button:hover span:after {
         width: 350px;
         grid-template-rows: 10% 1fr 1fr;
         grid-template-columns: 1fr 1fr 20%;
+        transition: 1s;
     }
 
     .info-box p {
@@ -311,6 +313,7 @@ button:hover span:after {
         justify-self: center;
         padding: 6%;
         border-radius: 50%;
+        font-size: 1em;
     }
 
     #board .banks {
@@ -388,5 +391,24 @@ button:hover span:after {
         max-height: 50px;
         font-size: 1em;
         padding: 15px;
+    }
+}
+
+@media only screen and (min-width: 1800px) {
+    h1 {
+        font-size: 100px;    
+        padding: 100px 30px 60px;
+    }
+    
+    .info-box {
+        top: 284px;
+    }
+
+    .hidden {
+        top: -420px;
+    }
+
+    #board div {
+        font-size: 1.8em;
     }
 }
