@@ -110,3 +110,6 @@
         - if computer is the randomly-chosen first player, computer's move needs to be embedded in boardSetUp, since we can't be waiting for handleClick to listen for a board click.
         - but then computer move also needs to be re-initiated each time it's the computer's turn.
         - I think I want to make a new function called sowSeeds, then have one handleClick for human opponent (rename function more specifically) and another for computer opponent. Each calls sowSeeds.
+
+
+- TESTING BRANCHES.
