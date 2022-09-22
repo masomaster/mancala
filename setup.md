@@ -12,8 +12,6 @@
 ✅ **DONE** (Monday morning, 10am)
 
 ## Icebox
-- As a user, I want the page to have responsive design (esp. for phone-size screens).
-    - Could make board vertical for phone/tablet screen
 - As a user, I want to play against a computer that randomly picks pits.
     - If implemented, should also add a selector at start to choose human or computer opponent.
 - As a user, I want the seeds to be sown sequentially with an interval (not all at once). Try tools from here: https://www.youtube.com/watch?v=705XCEruZFs&ab_channel=Fireship
@@ -24,6 +22,7 @@
 - ✅ As a user, I want a running tally of total wins and losses per player.
 - ✅ As a user, I want the reset button to "click" (change color or give some indication of having been pushed).
 - ✅ As a user, I want the game to be over when all pits on only one side of the board are empty (not the full board).
+- ✅ As a user, I want the page to have responsive design (esp. for phone-size screens).
 - As a user, I want to see a design down the middle of board (between rows).
 - As a user, I want to see a label so I know which side of the board is mine.
 
@@ -87,3 +86,27 @@
 
 ## Constant Data
 - player IDs -- integer (1 or -1) -- stored in an object.
+
+
+# Brainstorming Section: UX and pseudocode for computer opoponent and in-page name input (rather than prompt).
+
+## UX:
+- On page load, window asks if they want to play human or computer opponent.
+    - I.e. "Choose your opponent: Human   Computer"
+    - If human, input both names
+    - If computer, input "your" name
+
+
+## Pseudocode
+
+- Page-load input window
+    - duplicate info box and and center and resize to get hidden features / class; also duplicate JS code for hiding other elements when input is showing.
+    - render two buttons; add event listeners.
+    - if computer selected, change Player 2 name to 'Computer'
+    - Then load one or two text input fields for player name(s) with one button. capture input.value and save as player name(s).
+- JS for computer opponent
+    - Need a new boolean variable of perhaps humanOpponent;
+    - something needs to first check humanOpponent. If false, pick random pit, else listen to evt.target. Then proceed with if statement (line 72).
+        - if computer is the randomly-chosen first player, computer's move needs to be embedded in boardSetUp, since we can't be waiting for handleClick to listen for a board click.
+        - but then computer move also needs to be re-initiated each time it's the computer's turn.
+        - I think I want to make a new function called sowSeeds, then have one handleClick for human opponent (rename function more specifically) and another for computer opponent. Each calls sowSeeds.
