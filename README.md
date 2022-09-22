@@ -19,6 +19,7 @@ Select a pit to begin sowing seeds in the next (clockwise) pit to collect seeds 
 ## Next Steps
 - ✅ Implementing responsive design
 - Implementing a computer opponent
+- Implement in-page name entry (instead of window prompts)
 - Tweaking responsive design (pits should stay perfect circles; aspect ratio of board should remain consistent)
 - Implementing delay between "sowing" the seeds in each pit
 - Implementing seed images instead of words ("4 seeds")

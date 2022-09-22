@@ -21,9 +21,6 @@ body > img {
     height: 40px;
     width: 40px;
     margin: 20px;
-    /* position: absolute;
-    right: 10px;
-    top: 90px; */
     float: right;
     z-index: +1;
 }
@@ -241,8 +238,8 @@ button:hover span:after {
         position: absolute;
         top: 50px;
         right: 10px;
-        height: fit-content;
-        width: 350px;
+        height: 500px;
+        width: 250px;
         grid-template-rows: 10% 1fr 1fr;
         grid-template-columns: 1fr 1fr 20%;
         transition: 1s;
@@ -259,7 +256,7 @@ button:hover span:after {
     }
 
     .hidden {
-        top: -500px;
+        top: -710px;
         opacity: 0%;
     }
 
