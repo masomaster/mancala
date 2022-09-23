@@ -181,12 +181,10 @@ function nextTurn() {
     if (humanOpponent === false && turn === -1) {
         timer = setTimeout(compOpponent, 1000); 
         boardEl.removeEventListener('click', humanClick);
-
     }
     if (humanOpponent === true || turn === 1) {
         boardEl.addEventListener('click', humanClick);
     }
-
 }
 
 function checkWin() {
