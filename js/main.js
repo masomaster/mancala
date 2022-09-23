@@ -48,12 +48,12 @@ resetBtnEl.addEventListener('click', boardSetUp);
 /*----- functions -----*/
 function chooseHuman() {
     humanOpponent = true;
-    enterNames()
+    enterNames();
 }
 
 function chooseComputer() {
     humanOpponent = false;
-    enterNames()
+    enterNames();
 }
 
 function enterNames() {
@@ -109,7 +109,7 @@ function enterNames() {
         });
     } else {
         inputPromptEl.innerText = "Enter player names:";
-        createInputField()
+        createInputField();
         name2InputEl = document.createElement('input');
         name2InputEl.setAttribute('type', 'text');
         name2InputEl.style.gridColumn = 'span 2';
@@ -230,12 +230,12 @@ function hideInfo() {
 function render() {
     if (winner === null) {
         playerTurnDisplayEl.innerText = `${PLAYER_LOOKUP[turn].name}'s turn`;
-        instructionDisplayEl.innerText = 'Select a pit of seeds to sow clockwise to fill your bank'
+        instructionDisplayEl.innerText = 'Select a pit of seeds to sow clockwise to fill your bank';
     } else if (winner === 0) {
         playerTurnDisplayEl.innerText = "It's a tie!";
         instructionDisplayEl.innerText = 'Play again to give it another go!';
     } else {
-        playerTurnDisplayEl.innerText = `${PLAYER_LOOKUP[winner].name} wins!`
+        playerTurnDisplayEl.innerText = `${PLAYER_LOOKUP[winner].name} wins!`;
         instructionDisplayEl.innerText = 'Congratulations!';
         winCountsEl.innerHTML = `${PLAYER_LOOKUP[winner].name}: ${PLAYER_LOOKUP[winner].totalWins} <br> ${PLAYER_LOOKUP[winner * -1].name}: ${PLAYER_LOOKUP[winner * -1].totalWins}`
     }
