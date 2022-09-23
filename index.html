@@ -13,7 +13,14 @@
 </head>
 <body>
     <h1>Mancala</h1>
-    <img src= "https://images.vexels.com/media/users/3/131139/isolated/preview/ff49ce17e1541baa9298514ce6ad37ae-information-circle-icon-by-vexels.png">
+    <section id = "intro">
+        <div id = "game-choices">
+            <p id = "input-prompt">Select opponent:</p>
+            <div class = "choice-buttons" id="human"><span>Human</span></div>
+            <div class = "choice-buttons"id="computer"><span>Computer</span></div>
+        </div>
+    </section>
+    <img class = "invisible" src= "https://images.vexels.com/media/users/3/131139/isolated/preview/ff49ce17e1541baa9298514ce6ad37ae-information-circle-icon-by-vexels.png">
     <div  class = "info-box hidden">
         <h2><strong>About Mancala</strong></h2>
         <h2 id = "close">[close]</h2>
@@ -24,9 +31,9 @@
         </p>
         <div><a href = "https://en.wikipedia.org/wiki/Mancala" target="_blank"></a></div>
     </div>
-    <h2 id = "player-turn-msg">Player 1's turn</h2>
-    <h2 id = "instruction-msg">Select a pit of seeds to sow clockwise to fill your bank</h2>
-    <main>
+    <h2 class = "invisible" id = "player-turn-msg">Player 1's turn</h2>
+    <h2 class = "invisible" id = "instruction-msg">Select a pit of seeds to sow clockwise to fill your bank</h2>
+    <main class = "invisible" >
         <div id = "player1-bank-label">Player 1's bank</div>            
         <div id = "board">
             <div class = "banks" id = "pit13"></div>
@@ -46,7 +53,7 @@
         </div>
         <div id = "player2-bank-label">Player 2's bank</div>
     </main>
-    <h2 id = "win-counts"></h2>
-    <button><span>Play it again!</span></button>
+    <h2 class = "invisible" id = "win-counts"></h2>
+    <button class = "invisible" ><span>Play it again!</span></button>
 </body>
 </html>

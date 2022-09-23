@@ -17,6 +17,92 @@ h1 {
     z-index: +2;
 }
 
+section {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+#game-choices {
+    z-index: +2; 
+    width: 300px;
+    height: 250px;
+    background-color: #7eb77f;
+    border: 2px solid #5AA85B;
+    color: white;
+    margin-top: 20%;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.5s;
+    transition-property: opacity;
+    transition-duration: 1s;
+}
+
+.choice-buttons#human {
+    font-size: 1.3em;
+    grid-row: span 2;
+    border: 2px solid #5AA85B;
+    background-color: #5AA85B;
+    padding: 20px; 
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.choice-buttons#computer {
+    font-size: 1.3em;
+    grid-row: span 2;
+    border: 2px solid #5AA85B;
+    background-color: #5AA85B;
+    padding: 20px; 
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.choice-buttons:hover {
+    background-color: #7eb77f;
+}
+
+.choice-buttons:active {
+    background-color: #799496;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.choice-buttons span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.choice-buttons span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.choice-buttons:hover span {
+    padding-right: 25px;
+}
+
+.choice-buttons:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+#game-choices p {
+    grid-column: span 2;
+    font-weight: 500;
+    font-size: 1.8em;
+}
+
 body > img {
     height: 40px;
     width: 40px;
@@ -211,7 +297,12 @@ button:hover span:after {
 }
 
 .invisible {
-    opacity: 0%;
+    display: none;
+}
+
+#small-button {
+    font-size: 0.8em;
+    padding: 10px;
 }
 
 @media only screen and (max-width: 800px) {
@@ -394,6 +485,11 @@ button:hover span:after {
         font-size: 1em;
         padding: 15px;
     }
+
+    #small-button {
+        width: 75%;
+        font-size: 0.8em;
+    }
 }
 
 @media only screen and (min-width: 1800px) {
@@ -402,6 +498,12 @@ button:hover span:after {
         padding: 100px 30px 60px;
     }
     
+    #game-choices {
+        height: 300px;
+        width: 400px;
+        font-size: 1.5em;
+    }
+
     .info-box {
         top: 284px;
     }
@@ -412,5 +514,10 @@ button:hover span:after {
 
     #board div {
         font-size: 1.8em;
+    }
+
+    #small-button {
+        width: 75%;
+        font-size: 0.8em;
     }
 }
