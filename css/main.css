@@ -44,7 +44,9 @@ section {
 
 #input-prompt {
     grid-column: span 2;
+    margin-bottom: 5px;
 }
+
 .choice-buttons#human {
     font-size: 1.3em;
     grid-row: span 2;
@@ -53,6 +55,10 @@ section {
     padding: 20px; 
     margin: 10px;
     border-radius: 10px;
+}
+
+input {
+    margin: 5px;
 }
 
 .choice-buttons#computer {
@@ -325,7 +331,7 @@ button:hover span:after {
     body > img {
         position: absolute;
         right: 10px;
-        top: 50px;
+        top: 30px;
         height: 30px;
         width: 30px;
         margin: 15px;
@@ -333,7 +339,7 @@ button:hover span:after {
 
     .info-box {
         position: absolute;
-        top: 50px;
+        top: 45px;
         right: 10px;
         height: 500px;
         width: 250px;
@@ -361,13 +367,17 @@ button:hover span:after {
         font-size: 20px;
     }
 
+    #input-prompt {
+        margin-bottom: 3px;
+    }
+
     #player-turn-msg {
-        margin-top: 25px;
+        margin-top: 10px;
         position: relative;
     }
 
     #instruction-msg {
-        margin-bottom: 15px;
+        margin-bottom: 5px;
         font-size: 15px;
         position: relative;
     }
@@ -376,6 +386,7 @@ button:hover span:after {
         align-content: center;
         width: 100%;
         font-size: 20px;
+        margin: 5px;
     }
 
     main {
