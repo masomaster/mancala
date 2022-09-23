@@ -20,6 +20,10 @@ let startingPit = null;
 let lastPit = null;
 
 /*----- cached element references -----*/
+const gameChoiceWindow = document.getElementById('intro');
+const humanChoiceEl = document.getElementById('human');
+const computerChoiceEl = document.getElementById('computer');
+const inputPromptEl = document.getElementById('input-prompt');
 const infoButtonEl = document.querySelector('img');
 const infoWindowEl = document.querySelector('.info-box');
 const closeInfoWindowEl = document.getElementById('close');
@@ -31,38 +35,16 @@ const player1BankLabelEl = document.getElementById('player1-bank-label');
 const player2BankLabelEl = document.getElementById('player2-bank-label');
 const winCountsEl = document.getElementById('win-counts');
 const resetBtnEl = document.querySelector('button');
-const gameChoiceWindow = document.getElementById('intro');
-const humanChoiceEl = document.getElementById('human');
-const computerChoiceEl = document.getElementById('computer');
-const inputPromptEl = document.getElementById('input-prompt');
 
 /*----- event listeners -----*/
-resetBtnEl.addEventListener('click', boardSetUp);
-infoButtonEl.addEventListener('click', showInfo);
-closeInfoWindowEl.addEventListener('click', hideInfo);
 humanChoiceEl.addEventListener('click', chooseHuman);
 computerChoiceEl.addEventListener('click', chooseComputer);
+infoButtonEl.addEventListener('click', showInfo);
+closeInfoWindowEl.addEventListener('click', hideInfo);
+resetBtnEl.addEventListener('click', boardSetUp);
 
 
 /*----- functions -----*/
-function init() {
-
-    // implementing this as in-page boxes rather tahn prompts.
-
-    // setTimeout(function () {
-    //     let player1Input = prompt("Please enter Player 1's name", 'Player 1');
-    //     if (player1Input !== null) PLAYER_LOOKUP[1].name = player1Input;
-    //     let player2Input = prompt("Please enter Player 2's name", 'Player 2');
-    //     if (player2Input !== null) PLAYER_LOOKUP[-1].name = player2Input;
-    //     if (PLAYER_LOOKUP[1].name === PLAYER_LOOKUP[-1].name) {
-    //         PLAYER_LOOKUP[-1].name = prompt("Please enter Player 2's name (cannot match Player 1's)");
-    //     }
-    //     player1BankLabelEl.innerText = `${PLAYER_LOOKUP[1].name}'s bank`;
-    //     player2BankLabelEl.innerText = `${PLAYER_LOOKUP[-1].name}'s bank`;
-    //     render();
-    // }, 200)
-}
-
 function chooseHuman() {
     humanOpponent = true;
     enterNames()
@@ -74,81 +56,73 @@ function chooseComputer() {
 }
 
 function enterNames() {
-    if (humanOpponent === false) {
-        PLAYER_LOOKUP[-1].name = 'Computer';
-        inputPromptEl.innerText = 'Enter your name:';
-        inputPromptEl.style.gridRow = 'span 2';
+    let name1InputEl, name2InputEl, nameBtnEl
+
+    function createInputField() {
         humanChoiceEl.remove();
         computerChoiceEl.remove();
-        const name1InputEl = document.createElement('input');
+        name1InputEl = document.createElement('input');
         name1InputEl.setAttribute('type', 'text');
         name1InputEl.style.gridColumn = 'span 2';
         inputPromptEl.insertAdjacentElement('afterend',name1InputEl);
         name1InputEl.focus();
+    }
+    
+    function createButton() {
+        nameBtnEl = document.createElement('button');
+        nameBtnEl.id = 'small-button';
+        nameBtnEl.classList.add('choice-buttons');
+        nameBtnEl.style.fontSize = '1.4em';
+        nameBtnEl.style.gridColumn = 'span 2';
+        nameBtnEl.innerHTML = "<span>Let's do this!</span>";
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+              nameBtnEl.click();
+            }
+        });
+    }
 
-        const name1BtnEl = document.createElement('button');
-        name1BtnEl.id = 'small-button';
-        name1BtnEl.style.fontSize = '1.4em';
-        name1BtnEl.style.gridColumn = 'span 2';
-        name1BtnEl.innerHTML = "Let's do this!";
-        name1InputEl.insertAdjacentElement('afterend', name1BtnEl);
-        name1BtnEl.addEventListener('click', function() {
-            PLAYER_LOOKUP[1].name = name1InputEl.value;
-            name1InputEl.value = '';
-            gameChoiceWindow.style.display = 'none';
+    function transitionOut() {
+        setTimeout(function() {
             infoButtonEl.classList.remove('invisible');
             playerTurnDisplayEl.classList.remove('invisible');
             instructionDisplayEl.classList.remove('invisible');
             mainEl.classList.remove('invisible');
-            resetBtnEl.classList.remove('invisible');
+            winCountsEl.classList.remove('invisible');
+            resetBtnEl.classList.remove('invisible'); 
             boardSetUp();
+        }, 300);
+        gameChoiceWindow.style.display = 'none';
+    }
+
+    if (humanOpponent === false) {
+        PLAYER_LOOKUP[-1].name = 'Computer';
+        inputPromptEl.innerText = 'Enter your name:';
+        createInputField();
+        createButton();
+        name1InputEl.insertAdjacentElement('afterend', nameBtnEl);
+        nameBtnEl.addEventListener('click', function() {
+            PLAYER_LOOKUP[1].name = name1InputEl.value;
+            name1InputEl.value = '';
+            transitionOut();
         });
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Enter') {
-              name1BtnEl.click();
-            }
-          });
     } else {
         inputPromptEl.innerText = "Enter player names:";
-        inputPromptEl.style.gridRow = 'span 2';
-        humanChoiceEl.remove();
-        computerChoiceEl.remove();
-        const name1InputEl = document.createElement('input');
-        name1InputEl.setAttribute('type', 'text');
-        name1InputEl.style.gridColumn = 'span 2';
-        inputPromptEl.insertAdjacentElement('afterend',name1InputEl);
-        name1InputEl.focus();
-
-        const name2InputEl = document.createElement('input');
+        createInputField()
+        name2InputEl = document.createElement('input');
         name2InputEl.setAttribute('type', 'text');
         name2InputEl.style.gridColumn = 'span 2';
         name1InputEl.insertAdjacentElement('afterend',name2InputEl);
-        
-        const name1BtnEl = document.createElement('button');
-        name1BtnEl.id = 'small-button';
-        name1BtnEl.style.fontSize = '1.4em';
-        name1BtnEl.style.gridColumn = 'span 2';
-        name1BtnEl.innerHTML = "Let's do this!";
-        name2InputEl.insertAdjacentElement('afterend', name1BtnEl);
-        name1BtnEl.addEventListener('click', function() {
+        createButton();
+        name2InputEl.insertAdjacentElement('afterend', nameBtnEl);
+        nameBtnEl.addEventListener('click', function() {
             PLAYER_LOOKUP[1].name = name1InputEl.value;
             PLAYER_LOOKUP[-1].name = name2InputEl.value;
             if (PLAYER_LOOKUP[1].name === PLAYER_LOOKUP[-1].name) {
-                inputPromptEl.innerText = "Player names must be different";
-            } else {
-                gameChoiceWindow.style.display = 'none';
-                infoButtonEl.classList.remove('invisible');
-                playerTurnDisplayEl.classList.remove('invisible');
-                instructionDisplayEl.classList.remove('invisible');
-                mainEl.classList.remove('invisible');
-                resetBtnEl.classList.remove('invisible');
-                boardSetUp();
-            }
-        });
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Enter') {
-              name1BtnEl.click();
-            }
+                inputPromptEl.innerText = "Names can't match";
+                name1InputEl.value = '';
+                name2InputEl.value = '';
+            } else transitionOut();
         });
     }
 }
@@ -241,6 +215,7 @@ function showInfo() {
     playerTurnDisplayEl.classList.add('invisible');
     instructionDisplayEl.classList.add('invisible');
     mainEl.classList.add('invisible');
+    winCountsEl.classList.add('invisible');
     resetBtnEl.classList.add('invisible');
 }
 
@@ -249,6 +224,7 @@ function hideInfo() {
     playerTurnDisplayEl.classList.remove('invisible');
     instructionDisplayEl.classList.remove('invisible');
     mainEl.classList.remove('invisible');
+    winCountsEl.classList.remove('invisible');
     resetBtnEl.classList.remove('invisible');
 }
 
@@ -278,5 +254,3 @@ function render() {
         }
     });
 }
-
-// init();

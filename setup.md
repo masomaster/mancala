@@ -91,7 +91,7 @@
 # Brainstorming Section: UX and pseudocode for computer opoponent and in-page name input (rather than prompt).
 
 ## UX:
-- On page load, window asks if they want to play human or computer opponent.
+- ✅ On page load, window asks if they want to play human or computer opponent.
     - I.e. "Choose your opponent: Human   Computer"
     - If human, input both names
     - If computer, input "your" name
@@ -99,7 +99,7 @@
 
 ## Pseudocode
 
-- Page-load input window [[init function]]
+- ✅ Page-load input window [[init function]]
     - JS doesn't need to create input box; it can be there in HTML at load, then JS can remove after it's done. All other elements (except h1) should be invisible.
     - ✅ duplicate info box and and center and resize to get hidden features / class; also duplicate JS code for hiding other elements when input is showing.
     - ✅ render two buttons; add event listeners.
@@ -107,7 +107,7 @@
     - Then load one or two text input fields for player name(s) with one button. capture input.value and save as player name(s).
     - JS removes HTML box and makes everythign else appear.
     - Can't really cheat with making the rest invisible. I have to build it in with JS after choices.
-- JS for computer opponent
+- ✅ JS for computer opponent
     - ✅ Need a new boolean variable of perhaps humanOpponent;
     - ✅ something (a nextTurn function?) needs to first check humanOpponent. If false, pick random pit, else process evt.target. Then proceed with if statement (line 72).
         - ✅ if computer is the randomly-chosen first player, computer's move needs to be embedded in boardSetUp, since we can't be waiting for handleClick to listen for a board click.
@@ -119,8 +119,3 @@
             - ✅ New version of similar problem -- same situation (my row empty except pit 12) but apparently no buttons have event listeners now
             - ✅ just set it up again -- no changes to code -- and it worked. why?
             - ✅ solution: new version with similar problem happened because I'd already won and render then reset the board and rendered so it still wouldn't allow movees. needed to reset.
-- Bugs: 
-    - Need to fix info button animation transition time.
-    - Add transition time on choice windows disappearing.
-    - tidy up enterNames fcn to DRYer.
-    - let choice buttons accept "return" to enter.

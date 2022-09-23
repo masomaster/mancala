@@ -42,6 +42,9 @@ section {
     transition-duration: 1s;
 }
 
+#input-prompt {
+    grid-column: span 2;
+}
 .choice-buttons#human {
     font-size: 1.3em;
     grid-row: span 2;
@@ -138,6 +141,8 @@ img:hover {
 
 h2 {
     font-weight: 400;
+    transition-property: opacity;
+    transition-duration: 1s;
 }
 
 .info-box h2 {
@@ -297,7 +302,8 @@ button:hover span:after {
 }
 
 .invisible {
-    display: none;
+    opacity: 0%;
+    /* display: none; */
 }
 
 #small-button {
