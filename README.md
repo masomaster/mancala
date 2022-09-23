@@ -9,6 +9,9 @@ Mancala is an ancient and global game, possibly dating back as far as the 2nd ce
 - HTML
 - CSS
 - Javascript
+- Blood
+- Sweat
+- Tears
 
 ## Rules
 Select a pit to begin sowing seeds in the next (clockwise) pit to collect seeds in your bank. (Skips opponent's bank.) The game is over when all pits on one side of the board are empty; whoever has more seeds in their bank wins.
