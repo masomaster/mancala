@@ -10,7 +10,6 @@ const PLAYER_LOOKUP = {
         bankIdx: 6,
         totalWins: 0
     }
-
 }
 
 
@@ -18,6 +17,7 @@ const PLAYER_LOOKUP = {
 let turn, board, winner, timer, humanOpponent;
 let startingPit = null;
 let lastPit = null;
+
 
 /*----- cached element references -----*/
 const gameChoiceWindow = document.getElementById('intro');
@@ -35,6 +35,7 @@ const player1BankLabelEl = document.getElementById('player1-bank-label');
 const player2BankLabelEl = document.getElementById('player2-bank-label');
 const winCountsEl = document.getElementById('win-counts');
 const resetBtnEl = document.querySelector('button');
+
 
 /*----- event listeners -----*/
 humanChoiceEl.addEventListener('click', chooseHuman);
